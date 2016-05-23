@@ -34,8 +34,8 @@ Vagrant.configure(2) do |config|
   # config.vm.network "public_network", bridge: "en0: Wi-Fi (AirPort)"
   config.vm.provider "virtualbox" do |vb|
     config.vm.network "private_network", ip: "192.168.99.64", :name => 'vboxnet0', :adapter => 2
-    v.memory = 4096
-    v.cpus = 2
+    vb.memory = 4096
+    vb.cpus = 2
   end
 
   # Share an additional folder to the guest VM. The first argument is
@@ -73,6 +73,5 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
   # SHELL
-  
   # config.vm.provision :puppet, :module_path => modules 
 end
