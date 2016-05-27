@@ -9,15 +9,7 @@ class utils {
 
 class utils::install {
 
-	package { 'vim':
+	package { ['vim', 'curl', 'dnsutils', 'htop']:
 		ensure => present,
 	}
-
-	package { 'curl':
-		ensure => installed,
-	}
-
-	# package { 'docker-machine':
-	# 	ensure => installed,
-	# }
 }

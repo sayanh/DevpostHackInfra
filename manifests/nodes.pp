@@ -3,4 +3,6 @@ node default {
 	include ssh
 	include git
 	include utils
+	include 'docker'
+	# include docker_images
 }
