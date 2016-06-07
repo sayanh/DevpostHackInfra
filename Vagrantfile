@@ -12,7 +12,7 @@ Vagrant.configure(2) do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://atlas.hashicorp.com/search.
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "debian/contrib-jessie64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -37,6 +37,12 @@ Vagrant.configure(2) do |config|
     vb.memory = 4096
     vb.cpus = 2
   end
+
+  # config.vm.synced_folder ".", "/shared",
+  # owner: "root", group: "root"
+
+  # config.vm.synced_folder ".", "/vagrant",
+  # owner: "vagrant", group: "vagrant"
 
   # Share an additional folder to the guest VM. The first argument is
   # the path on the host to the actual folder. The second argument is

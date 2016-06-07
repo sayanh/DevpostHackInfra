@@ -14,9 +14,9 @@ class git {
 class git::install {
 	# resources
 
-	package { 'git':
-		ensure => installed,
-	}
+	# package { 'git':
+	# 	ensure => installed,
+	# }
 
 	# git::clone { 'sayanh/dotfiles':
 	# 	path => '/home/shazra',
@@ -24,7 +24,7 @@ class git::install {
 
 	# }
 	### Cloning the dot files
-	vcsrepo { "/home/shazra/xyz":
+	vcsrepo { "/home/shazra/dotfiles":
 	   user => 'shazra',
 	   provider => git,
 	   ensure => latest,
@@ -43,6 +43,22 @@ class git::install {
 	   revision => 'master',
 	   require => User['shazra'],
 	   submodules => false,
+	}
+
+	file { '/home/shazra/.vimrc':
+		ensure => 'link',
+		target => '/home/shazra/dotfiles/.vimrc',
+		owner => 'shazra',
+		# user => 'shazra',
+		# require => ['/home/shazra/dotfiles/.vimrc'],
+	}
+
+	file { '/home/shazra/.bashrc':
+		ensure => 'link',
+		target => '/home/shazra/dotfiles/.bashrc',
+		owner => 'shazra',
+		# user => 'shazra',
+		# require => File['/home/shazra/dotfiles/.bashrc'],
 	}
 
 }

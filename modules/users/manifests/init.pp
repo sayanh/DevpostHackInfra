@@ -3,22 +3,16 @@
 #
 class users {
 	# resources
-	
 
 	user { 'shazra':
 		ensure => 'present',
-		groups => ['sudo'],
+		groups => ['sudo', 'docker'],
 		home => '/home/shazra',
 		managehome => true,
 		password => '$6$lY2Gp3Cr$zNrUB7T3yibUF/gWn5cTQ0fNv7MUmx/DZuw3E7I..Vh9tITG28BtgvXJPU4Gm4Z/9oNvlbX24KzQ9Ib1QH1B9.',
 		shell => '/bin/bash',
 	}
 
-	# group { 'docker':
-	# 	ensure => 'present',
-	# 	gid => '502',
-	# }
-	
 	file { '/home/shazra':
 		ensure => directory,
 		owner => 'shazra',
@@ -28,14 +22,6 @@ class users {
 		require => User['shazra'],
 	}
 
-	# file { '/etc/ssh/sudoers':
-	# 	ensure => present,
-	# 	owner => root,
-	# 	group => root,
-	# 	mode => 600,
-	# 	source => "puppet:///modules/users/shazra/sudoers",
-	# }
-
 	ssh_authorized_key { 'shazra':
 		ensure => 'present',
 		user => 'shazra',
@@ -44,18 +30,7 @@ class users {
 	}
 
 	file { '/etc/motd':
-		content => "Hello, world!! Puppet rocks!! \n"
+		content => "Welcome to this machine!! \n"
 	}	
 
-	# sudo::conf { 'shazra':
- #    	priority => 30,
-	#     content  => 'shazra ALL=(ALL) NOPASSWD:ALL',
- #  	}
-
-
-	# vcsrepo { '/home/shazra':
-	# 	ensure => mirror,
-	#     provider => git,
-	#   	source => 'git@github.com:sayanh/dotfiles.git',
-	# }
 }

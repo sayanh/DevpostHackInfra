@@ -13,7 +13,5 @@ class puppet_support {
 #
 class puppet_support::install {
 	# resources
-	package { 'dnsutils':
-		ensure => installed,
-	}
+	
 }
