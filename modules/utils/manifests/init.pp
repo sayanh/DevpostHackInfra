@@ -17,7 +17,7 @@ class utils::install {
 		ensure => present,
 		owner => root,
 		group => root,
-		mode => 600,
+		mode => 0644,
 		source => "puppet:///modules/utils/.bashrc",
 	}
 
