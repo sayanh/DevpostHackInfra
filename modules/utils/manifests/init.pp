@@ -9,7 +9,7 @@ class utils {
 
 class utils::install {
 
-	package { ['git', 'vim', 'curl', 'dnsutils', 'htop', 'locales']:
+	package { ['git', 'vim', 'curl', 'dnsutils', 'htop', 'locales', 'telnet', 'lsb-release']:
 		ensure => present,
 	}
 
@@ -28,7 +28,33 @@ class utils::install {
 		group => root,
 		mode => 600,
 		source => "puppet:///modules/utils/authorized_keys",
+		require => File['/root/.ssh'],
 	}
+
+	file { '/root/.ssh':
+    ensure => 'directory',
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0750',
+  }
+
+  if $server == 'nginx' {
+			ensure => present,
+		}
+		package { ['apache2']:
+			ensure => absent,
+		}
+  } 
+
+  if $server == 'apache' {
+  		package { ['nginx']:
+				ensure => absent,
+			}
+			package { ['apache2']:
+				ensure => present,
+			}
+  }
+
 
 	# package { ['language-pack-en', 'language-pack-en-base', 'manpages']:
 	# 	ensure => present,
