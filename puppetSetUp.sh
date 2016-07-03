@@ -19,7 +19,7 @@ sudo puppet module install garethr/docker
 sudo puppet module install saz-sudo
 sudo puppet module install puppetlabs/vcsrepo
 
-sudo puppet apply --modulepath=/vagrant/modules:/home/vagrant/.puppet/modules /vagrant/manifests/site.pp --debug --noop
+sudo puppet apply --modulepath=/vagrant/modules:/home/vagrant/.puppet/modules /vagrant/manifests/site.pp --debug
 
 cd ~
 # sudo gpasswd -a ${USER} docker

@@ -3,8 +3,10 @@ node default {
 	# include ssh
 	# include git
 	include utils
+	include scala
+	include spark
 	# include privileges
-	include 'docker'
+	# include 'docker'
 	# include keys
 	# include docker_images
 	# include vim_setup
