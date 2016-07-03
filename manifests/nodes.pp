@@ -5,6 +5,7 @@ node default {
 	include utils
 	include scala
 	include spark
+	include ruby
 	# include privileges
 	# include 'docker'
 	# include keys
@@ -12,5 +13,4 @@ node default {
 	# include vim_setup
 	# include set_time_zone
 	# include locale_set_up
-	# include ruby_set_up
 }
