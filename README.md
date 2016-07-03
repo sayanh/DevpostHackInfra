@@ -2,7 +2,7 @@
 
 Guidelines on how to use:
 
- * Contents: , Debian jessie, Scala, Spark, Ruby
+ * Contents: Debian jessie, Scala, Spark, Ruby
  * Clone the repository
  * Execute the following scripts
 
