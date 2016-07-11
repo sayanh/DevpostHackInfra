@@ -9,7 +9,7 @@ class utils {
 
 class utils::install {
 
-	package { ['git', 'vim', 'curl', 'dnsutils', 'htop', 'locales', 'telnet', 'lsb-release', 'python', 'apt-transport-https', 'python-numpy', 'build-essential']:
+	package { ['git', 'vim', 'curl', 'dnsutils', 'htop', 'locales', 'telnet', 'lsb-release', 'python', 'apt-transport-https', 'python-numpy', 'build-essential', 'libssl-dev', 'openssl']:
 		ensure => present,
 	}
 
