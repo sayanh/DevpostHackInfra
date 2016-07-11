@@ -5,7 +5,8 @@ node default {
 	include utils
 	include scala
 	include spark
-	include ruby
+	#include ruby
+	include python
 	# include privileges
 	# include 'docker'
 	# include keys
